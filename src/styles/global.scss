@@ -3,7 +3,8 @@
 @import '../../node_modules/@plake492/css_utilities/src/base-vars';
 
 $bg-primary: #0e1e2b;
-$bg-accent: hsl(208, 56%, 52%);
+$bg-accent: #4089c9;
+$bg-tertiary: #5f23d8;
 $bg-accent-light: lighten(hsl(208, 56%, 52%), 20%);
 $bg-dark: #010305;
 
@@ -12,29 +13,11 @@ $base-spacer: rem(22);
 @import '../../node_modules/@plake492/css_utilities/src/base-maps';
 
 $add-bg-colors: (
-  accent-light: $bg-accent-light
+  accent-light: $bg-accent-light,
 );
 
 $bg-colors: map.merge($bg-colors, $add-bg-colors);
 $target-colors: map.merge($bg-colors, $target-colors);
-
-$placements: (
-  center: center,
-  start: flex-start,
-  end: flex-end,
-  between: space-between,
-  around: space-around,
-  even: space-evenly,
-  stretch: stretch
-);
-
-$align-items: (
-  center: center,
-  start: flex-start,
-  end: flex-end,
-  baseline: baseline,
-  stretch: stretch
-);
 
 @import '../../node_modules/@plake492/css_utilities/src/post-vars';
 

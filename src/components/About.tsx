@@ -1,13 +1,13 @@
-import * as React from 'react'
-import Image from 'next/image'
+import * as React from 'react';
+import Image from 'next/image';
 import {
   faKeyboard,
   faMugHot,
   faCode,
   faGuitar,
   faCodeMerge,
-  faJar
-} from '@fortawesome/free-solid-svg-icons'
+  faJar,
+} from '@fortawesome/free-solid-svg-icons';
 import {
   faNodeJs,
   faSass,
@@ -15,48 +15,48 @@ import {
   faSquareJs,
   faDev,
   faAws,
-  faVuejs
-} from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import useAnimation from '@components/hooks/useAnimation'
+  faVuejs,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useAnimation from '@components/hooks/useAnimation';
 
 export const About = function () {
-  const refRef = React.useRef(null)
-  const imgRefOne = React.useRef(null)
-  const imgRef = React.useRef(null)
-  const textRef = React.useRef(null)
+  const refRef = React.useRef(null);
+  const imgRefOne = React.useRef(null);
+  const imgRef = React.useRef(null);
+  const textRef = React.useRef(null);
 
-  useAnimation((gsap: any) => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: imgRefOne.current,
-          start: 'start bottom-=200',
-          end: 'start+=600 bottom-=200',
-          scrub: 4
-        }
-      })
-      .to(imgRef.current, { y: 50 }, 0)
-      .to(imgRefOne.current, { y: -25 }, 0)
+  // useAnimation((gsap: any) => {
+  //   gsap
+  //     .timeline({
+  //       scrollTrigger: {
+  //         trigger: imgRefOne.current,
+  //         start: 'start bottom-=200',
+  //         end: 'start+=600 bottom-=200',
+  //         scrub: 4,
+  //       },
+  //     })
+  //     .to(imgRef.current, { y: 50 }, 0)
+  //     .to(imgRefOne.current, { y: -25 }, 0);
 
-    const tl = gsap.timeline({
-      duration: 1.25,
-      ease: 'power4.out',
-      scrollTrigger: {
-        trigger: textRef.current,
-        markers: true,
-        start: 'center bottom-=100',
-        end: 'center bottom-=100',
-        toggleActions: 'play none none reverse'
-      }
-    })
+  //   const tl = gsap.timeline({
+  //     duration: 1.25,
+  //     ease: 'power4.out',
+  //     scrollTrigger: {
+  //       trigger: textRef.current,
+  //       markers: true,
+  //       start: 'center bottom-=100',
+  //       end: 'center bottom-=100',
+  //       toggleActions: 'play none none reverse',
+  //     },
+  //   });
 
-    tl.from(
-      textRef.current.children,
-      { y: 75, autoAlpha: 0, stagger: 0.1 },
-      0.3
-    )
-  })
+  //   tl.from(
+  //     textRef.current.children,
+  //     { y: 75, autoAlpha: 0, stagger: 0.1 },
+  //     0.3
+  //   );
+  // });
 
   return (
     <>
@@ -121,7 +121,7 @@ export const About = function () {
                     style={
                       {
                         objectFit: 'cover',
-                        filter: 'hue-rotate(145deg) blur(2px)'
+                        filter: 'hue-rotate(145deg) blur(2px)',
                       } as React.CSSProperties
                     }
                     className="object-position-center d-block"
@@ -242,5 +242,5 @@ export const About = function () {
         </div>
       </section>{' '}
     </>
-  )
-}
+  );
+};

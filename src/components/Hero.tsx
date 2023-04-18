@@ -1,21 +1,26 @@
-import useAnimation from '@components/hooks/useAnimation'
+import * as React from 'react';
+import Particles from './Particles';
+import { heroParticlConfig } from '@components/utils/particals/hero';
+import useAnimation from '@components/hooks/useAnimation';
 import {
   HeroAnimationRefs,
-  heroAnimations
-} from '@components/utils/animations/hero'
-import * as React from 'react'
+  heroAnimations,
+} from '@components/utils/animations/hero';
 
 export const Hero = () => {
-  const vidRef = React.useRef<HTMLDivElement>(null)
-  const textRef = React.useRef<HTMLDivElement>(null)
+  const vidRef = React.useRef<HTMLDivElement>(null);
+  const textRef = React.useRef<HTMLDivElement>(null);
 
   useAnimation<HeroAnimationRefs>(heroAnimations, {
     vidRef,
-    textRef
-  })
+    textRef,
+  });
 
   return (
-    <div className="img-wrapper ratio-16x9 position-relative" ref={vidRef}>
+    <div
+      className="img-wrapper ratio-16x9 position-relative overflow-hidden"
+      ref={vidRef}
+    >
       <div
         className="position-absolute z-10 bottom-75 mt-xxxl left-50 absolute-center"
         style={{ fontSize: '20rem' }}
@@ -24,8 +29,7 @@ export const Hero = () => {
       </div>
       <video
         style={{
-          filter: 'hue-rotate(305deg)',
-          objectFit: 'cover'
+          objectFit: 'cover',
         }}
         className="object-position-br d-block"
         width="100%"
@@ -44,6 +48,11 @@ export const Hero = () => {
           <p className="h1 mb-none">Name Here</p>
         </div>
       </div>
+
+      <Particles
+        options={heroParticlConfig}
+        className="position-absolute w-100 h-100 top-0 z-n1"
+      />
     </div>
-  )
-}
+  );
+};

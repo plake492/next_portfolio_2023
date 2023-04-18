@@ -2,7 +2,7 @@ import * as React from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 
-export default function useAnimationtuple<T>(
+export default function useAnimation<T>(
   animation: Function,
   refs: T
 ): void {
