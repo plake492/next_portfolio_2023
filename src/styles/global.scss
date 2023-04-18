@@ -1,3 +1,67 @@
+@use 'sass:map';
+
 @import '../../node_modules/@plake492/css_utilities/src/base-vars';
+
+$bg-primary: #0e1e2b;
+$bg-accent: hsl(208, 56%, 52%);
+$bg-accent-light: lighten(hsl(208, 56%, 52%), 20%);
+$bg-dark: #010305;
+
+$base-font-size: 22;
+$base-spacer: rem(22);
 @import '../../node_modules/@plake492/css_utilities/src/base-maps';
+
+$add-bg-colors: (
+  accent-light: $bg-accent-light
+);
+
+$bg-colors: map.merge($bg-colors, $add-bg-colors);
+$target-colors: map.merge($bg-colors, $target-colors);
+
+$placements: (
+  center: center,
+  start: flex-start,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  even: space-evenly,
+  stretch: stretch
+);
+
+$align-items: (
+  center: center,
+  start: flex-start,
+  end: flex-end,
+  baseline: baseline,
+  stretch: stretch
+);
+
 @import '../../node_modules/@plake492/css_utilities/src/post-vars';
+
+#node {
+  background-image: url('../../public/assets/images/bg.svg');
+  background-size: cover;
+}
+#steps {
+  background-image: url('../../public/assets/images/steps.svg');
+  background-size: cover;
+  background-position: top;
+}
+
+#video-overlay {
+  box-shadow: 0px 0px 20px 2px #21889e;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgb(14 30 43 / 2%) 0%,
+      rgb(0 88 167) 100%
+    );
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
