@@ -1,6 +1,8 @@
-import Head from 'next/head';
-import { Hero } from '@components/components/Hero';
-import { About } from '@components/components/About';
+import * as React from 'react'
+import Head from 'next/head'
+import Hero from '@components/components/Hero'
+import About from '@components/components/About'
+import Project from '@components/components/Project'
 
 export default function Home() {
   return (
@@ -11,11 +13,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-primary">
+
+      <main className="bg-light">
         <Hero />
-        <div style={{ height: 800 }} className="bg-dark" id="steps"></div>
         <About />
+        <Project />
       </main>
     </>
-  );
+  )
 }

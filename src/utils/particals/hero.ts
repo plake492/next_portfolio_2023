@@ -1,25 +1,9 @@
-import { IOptions, RecursivePartial } from 'tsparticles-engine';
-import { colorTheme } from '../styleConfig';
+import { IOptions, RecursivePartial } from 'tsparticles-engine'
+import { colorTheme } from '../styleConfig'
 
 export const heroParticlConfig: RecursivePartial<IOptions> = {
   fpsLimit: 120,
-  background: {
-    color: {
-      value: colorTheme.primary,
-    },
-  },
   interactivity: {
-    events: {
-      onClick: {
-        enable: true,
-        mode: 'push',
-      },
-      onHover: {
-        enable: true,
-        mode: 'repulse',
-      },
-      resize: true,
-    },
     modes: {
       push: {
         quantity: 4,
@@ -37,7 +21,7 @@ export const heroParticlConfig: RecursivePartial<IOptions> = {
     },
     links: {
       color: colorTheme.tertiary,
-      distance: 100,
+      distance: 120,
       enable: true,
       opacity: 0.6,
       width: 1,
@@ -46,13 +30,10 @@ export const heroParticlConfig: RecursivePartial<IOptions> = {
       enable: true,
     },
     move: {
-      direction: 'none',
+      direction: 'bottomRight',
       enable: true,
-      outModes: {
-        default: 'bounce',
-      },
       random: false,
-      speed: 1,
+      speed: 0.5,
       straight: false,
     },
     number: {
@@ -60,7 +41,7 @@ export const heroParticlConfig: RecursivePartial<IOptions> = {
         enable: true,
         area: 800,
       },
-      value: 80,
+      value: 40,
     },
     opacity: {
       value: 0.5,
@@ -69,9 +50,9 @@ export const heroParticlConfig: RecursivePartial<IOptions> = {
       type: 'circle',
     },
     size: {
-      value: { min: 1, max: 5 },
+      value: { min: 1, max: 3 },
     },
   },
   detectRetina: true,
-  fullScreen: false,
-};
+  fullScreen: { enable: false },
+}

@@ -13,7 +13,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@plake492/css_utilities": "^1.0.0",
+    "@plake492/css_utilities": "^1.0.1",
     "@types/node": "18.15.11",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
@@ -28,5 +28,12 @@
     "tsparticles": "^2.9.3",
     "tsparticles-engine": "^2.9.3",
     "typescript": "5.0.4"
+  },
+  "prettier": {
+    "semi": false,
+    "arrowParens": "always",
+    "singleQuote": true,
+    "endOfLine": "lf",
+    "trailingComma": "es5"
   }
 }

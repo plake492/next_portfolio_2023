@@ -1,58 +1,146 @@
-import * as React from 'react';
-import Particles from './Particles';
-import { heroParticlConfig } from '@components/utils/particals/hero';
-import useAnimation from '@components/hooks/useAnimation';
+import * as React from 'react'
+import HalfBoarder from './HalfBoarder'
+import useAnimation from '@components/hooks/useAnimation'
+import { heroTextFadeAnimations } from '@components/utils/animations/heroTextAnimation'
+import { textColorShiftAnimation } from '@components/utils/animations/textColorShiftAnimation'
+import { gridAnimation } from '@components/utils/animations/gridAnimation'
+import { colorTheme } from '@components/utils/styleConfig'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  HeroAnimationRefs,
-  heroAnimations,
-} from '@components/utils/animations/hero';
+  faNodeJs,
+  faSass,
+  faCss3,
+  faDev,
+  faAws,
+} from '@fortawesome/free-brands-svg-icons'
 
-export const Hero = () => {
-  const vidRef = React.useRef<HTMLDivElement>(null);
-  const textRef = React.useRef<HTMLDivElement>(null);
+export default function Hero(): JSX.Element {
+  const containerRef = React.useRef<HTMLDivElement>(null)
 
-  useAnimation<HeroAnimationRefs>(heroAnimations, {
-    vidRef,
-    textRef,
-  });
+  const word = 'Fullstack Web Developer'
+
+  useAnimation<HTMLDivElement>(heroTextFadeAnimations, {
+    containerRef,
+  })
+
+  return (
+    <section
+      className="h-min-vh-100 flex-center position-relative bg-light"
+      id="hero-section"
+    >
+      <GridAnimation />
+      <div
+        className="p-xxxl d-flex flex-col gap-xl color-tertiary position-relative w-100"
+        ref={containerRef}
+      >
+        <h1 className="sr-only skip">Patrick Lake</h1>
+        <HalfBoarder color="dark" size="3" flip iterate={1} className="skip" />
+        <TextColorAnimation word={word} />
+        <small className="text-sm  ml-auto text-end">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita cum
+          esse dolor quasi, illo dicta soluta! Modi, adipisci dolore totam
+          impedit eos officia eius mollitia dolor. Recusandae ab dolorem modi.
+        </small>
+        <div className="border border-tertiary border-3 p-md border-rounded bg-dark p-md box-shadow shadow-dark shadow-3">
+          <div className="d-flex justify-content-between gap-xl">
+            <FontAwesomeIcon
+              className="color-tertiary"
+              icon={faDev}
+              bounce
+              width={60}
+            />
+            <FontAwesomeIcon
+              className="color-tertiary-20"
+              icon={faAws}
+              bounce
+              width={60}
+            />
+            <FontAwesomeIcon
+              className="color-tertiary-40"
+              icon={faCss3}
+              bounce
+              width={60}
+            />
+            <FontAwesomeIcon
+              className="color-tertiary-60"
+              icon={faNodeJs}
+              bounce
+              width={60}
+            />
+            <FontAwesomeIcon
+              className="color-tertiary-60"
+              icon={faSass}
+              bounce
+              width={60}
+            />
+            <FontAwesomeIcon
+              className="color-tertiary-40"
+              icon={faCss3}
+              bounce
+              width={60}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function GridAnimation() {
+  const gridRef = React.useRef<HTMLDivElement>(null)
+  useAnimation<HTMLDivElement>(gridAnimation, { gridRef })
+
+  return (
+    <div className="position-absolute top-0 left-0 h-100 w-100 overflow-hidden border-bottom border-5 border-tertiary z-10 pe-none">
+      <div ref={gridRef} className="position-relative h-100 w-100" id="grid">
+        <div className="d-flex justify-content-between w-100 h-100 position-absolute top-0 left-0 z-3">
+          {[...Array(15)].map((_, i) => (
+            <div className="line-v" key={i}></div>
+          ))}
+        </div>
+        <div className="d-flex flex-col justify-content-between w-100 h-100 position-absolute top-0 left-0 z-3">
+          {[...Array(15)].map((_, i) => (
+            <div className="line-h" key={i}></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function TextColorAnimation({ word }: { word: string }) {
+  const textColorShiftRef = React.useRef<HTMLDivElement>(null)
+
+  useAnimation<HTMLDivElement>(textColorShiftAnimation, {
+    textColorShiftRef,
+  })
 
   return (
     <div
-      className="img-wrapper ratio-16x9 position-relative overflow-hidden"
-      ref={vidRef}
+      className="split-text skip"
+      ref={textColorShiftRef}
+      style={{ '--text-color': colorTheme.dark } as React.CSSProperties}
     >
-      <div
-        className="position-absolute z-10 bottom-75 mt-xxxl left-50 absolute-center"
-        style={{ fontSize: '20rem' }}
-      >
-        &#x2965;
-      </div>
-      <video
-        style={{
-          objectFit: 'cover',
-        }}
-        className="object-position-br d-block"
-        width="100%"
-        height="100%"
-        muted
-        autoPlay
-        loop
-      >
-        <source src={'/assets/videos/vid.mp4'} />
-      </video>
-      <div className="position-absolute top-75 mb-xxxl left-50 absolute-center w-100 h-100 flex-center">
-        <div
-          className="p-md border border-rounded border-2 d-inline-block"
-          ref={textRef}
-        >
-          <p className="h1 mb-none">Name Here</p>
-        </div>
-      </div>
-
-      <Particles
-        options={heroParticlConfig}
-        className="position-absolute w-100 h-100 top-0 z-n1"
-      />
+      {word.split(' ').map(
+        (wordChunk: string, i: number): JSX.Element => (
+          <div
+            style={{
+              marginLeft: i === 1 ? 48 * 2 : i === 2 ? 16 : 0,
+              display: i ? 'inline-block' : 'block',
+            }}
+            key={wordChunk + i}
+          >
+            {wordChunk.split('').map((letter: string, index: number) => (
+              <div
+                key={letter + index}
+                className="position-relative h3 d-inline-block"
+              >
+                {letter}
+              </div>
+            ))}
+          </div>
+        )
+      )}
     </div>
-  );
-};
+  )
+}

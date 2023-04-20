@@ -1,35 +1,35 @@
-import { useCallback } from 'react';
+import * as React from 'react'
+import Particles from 'react-particles'
+import { loadFull } from 'tsparticles'
 import type {
-  Container,
   Engine,
   RecursivePartial,
   IOptions,
-} from 'tsparticles-engine';
-import Particles from 'react-particles';
-import { loadFull } from 'tsparticles';
+  Container,
+} from 'tsparticles-engine'
 
 interface ParticleComponentPropTypes {
-  options: RecursivePartial<IOptions>;
-  className?: string | undefined;
+  options: RecursivePartial<IOptions>
+  className?: string | undefined
 }
 
 export default function ParticleComponent({
   options,
   className,
-}: ParticleComponentPropTypes) {
-  const particlesInit = useCallback(async (engine: Engine) => {
+}: ParticleComponentPropTypes): JSX.Element {
+  const particlesInit = React.useCallback(async (engine: Engine) => {
     // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
     // starting from v2 you can add only the features you need reducing the bundle size
-    await loadFull(engine);
-  }, []);
+    await loadFull(engine)
+  }, [])
 
-  const particlesLoaded = useCallback(
+  const particlesLoaded = React.useCallback(
     async (container: Container | undefined) => {
-      console.log(container);
+      console.log(container)
     },
     []
-  );
+  )
 
   return (
     <Particles
@@ -41,5 +41,5 @@ export default function ParticleComponent({
       height="100%"
       options={options}
     />
-  );
+  )
 }
