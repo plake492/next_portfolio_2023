@@ -9,14 +9,15 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import useAnimation from '@components/hooks/useAnimation'
 import { curtainAnimation } from '@components/utils/animations/curtainAnimation'
+import { Form, Input } from '@plake492/form-validation'
 
-export default function About(): JSX.Element {
+export default function Contact(): JSX.Element {
   return (
-    <section className="bg-primary position-relative border-bottom border-5 border-accent">
-      <CurtainAnimation />
+    <section className="position-relative border-bottom border-left border-right border-5 border-accent">
+      {/* <CurtainAnimation /> */}
 
       <div className="row py-xl px-xl">
-        <div className="col-2 flex-center gap-xxxl px-xl">
+        <div className="col-2 flex-center gap-xxxl px-xl border-left border-2 border-accent">
           <FontAwesomeIcon
             icon={faMugHot}
             className="color-tertiary-20"
@@ -35,23 +36,38 @@ export default function About(): JSX.Element {
           />
         </div>
         <div
-          className="border-left border-right border-accent col-8 position-relative"
+          className="border-left border-right border-accent col-8 position-relative my-xl
+          my-xl"
           style={{ minHeight: '90vh' }}
         >
           <div className="px-xl flex-center h-100 position-relative z-1">
-            <h1 className="color-accent-light">Patrick Lake</h1>
+            {/* <h1 className="color-accent-light">Patrick Lake</h1>
             <p className="color-accent-light text-lg">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt ex
               eveniet, expedita commodi, sed beatae eius mollitia est, laborum
               voluptatibus ad iste quos aspernatur voluptatem minima. Adipisci,
               aut? A, natus!
-            </p>
+            </p> */}
+            <form action="none">
+              <div>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div>
+                <textarea placeholder="Email" />
+              </div>
+              <div>
+                <button type="submit">Submit</button>
+              </div>
+            </form>
+            {/* <Form onSubmit={() => console.log('Form')}>
+              <Input type={'email'} label={'Email'} id={'email'} />
+            </Form> */}
           </div>
           <div className="position-absolute mt-xl top-50 left-50 absolute-center z-0 w-100">
             <SuperSVG />
           </div>
         </div>
-        <div className="col-2 flex-center gap-xxxl px-xl">
+        <div className="col-2 flex-center gap-xxxl px-xl border-right border-2 border-accent">
           <FontAwesomeIcon
             icon={faNodeJs}
             className="color-tertiary-20"
@@ -80,7 +96,7 @@ function CurtainAnimation() {
 
   return (
     <div
-      className="spacer-wrapper position-absolute top-0 left-0 w-100 h-100 z-2"
+      className="spacer-wrapper position-absolute top-0 left-0 w-100 h-100 z-2 pe-none"
       ref={spacerWrapperRef}
     >
       {[...Array(12)].map((_, i) => (

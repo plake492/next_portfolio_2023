@@ -5,14 +5,6 @@ import { heroTextFadeAnimations } from '@components/utils/animations/heroTextAni
 import { textColorShiftAnimation } from '@components/utils/animations/textColorShiftAnimation'
 import { gridAnimation } from '@components/utils/animations/gridAnimation'
 import { colorTheme } from '@components/utils/styleConfig'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faNodeJs,
-  faSass,
-  faCss3,
-  faDev,
-  faAws,
-} from '@fortawesome/free-brands-svg-icons'
 
 export default function Hero(): JSX.Element {
   const containerRef = React.useRef<HTMLDivElement>(null)
@@ -24,24 +16,27 @@ export default function Hero(): JSX.Element {
   })
 
   return (
-    <section
-      className="h-min-vh-100 flex-center position-relative bg-light"
-      id="hero-section"
-    >
+    <section className="flex-center position-relative" id="hero-section">
       <GridAnimation />
       <div
-        className="p-xxxl d-flex flex-col gap-xl color-tertiary position-relative w-100"
+        className="p-xxxl d-flex flex-col gap-xl color-tertiary position-relative w-100 container"
         ref={containerRef}
       >
         <h1 className="sr-only skip">Patrick Lake</h1>
-        <HalfBoarder color="dark" size="3" flip iterate={1} className="skip" />
+        <HalfBoarder
+          color="tertiary"
+          size="3"
+          flip
+          iterate={1}
+          className="skip"
+        />
         <TextColorAnimation word={word} />
-        <small className="text-sm  ml-auto text-end">
+        <small className="text-sm  ml-auto text-center px-xxl">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita cum
           esse dolor quasi, illo dicta soluta! Modi, adipisci dolore totam
           impedit eos officia eius mollitia dolor. Recusandae ab dolorem modi.
         </small>
-        <div className="border border-tertiary border-3 p-md border-rounded bg-dark p-md box-shadow shadow-dark shadow-3">
+        {/* <div className="border border-tertiary border-3 p-md border-rounded bg-dark p-md box-shadow shadow-dark shadow-3">
           <div className="d-flex justify-content-between gap-xl">
             <FontAwesomeIcon
               className="color-tertiary"
@@ -80,7 +75,7 @@ export default function Hero(): JSX.Element {
               width={60}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )
@@ -89,9 +84,8 @@ export default function Hero(): JSX.Element {
 function GridAnimation() {
   const gridRef = React.useRef<HTMLDivElement>(null)
   useAnimation<HTMLDivElement>(gridAnimation, { gridRef })
-
   return (
-    <div className="position-absolute top-0 left-0 h-100 w-100 overflow-hidden border-bottom border-5 border-tertiary z-10 pe-none">
+    <div className="position-absolute top-0 left-0 h-100 w-100 overflow-hidden z-10 pe-none">
       <div ref={gridRef} className="position-relative h-100 w-100" id="grid">
         <div className="d-flex justify-content-between w-100 h-100 position-absolute top-0 left-0 z-3">
           {[...Array(15)].map((_, i) => (
@@ -117,7 +111,7 @@ function TextColorAnimation({ word }: { word: string }) {
 
   return (
     <div
-      className="split-text skip"
+      className="split-text skip border border-primary px-md py-md bg-dark-40"
       ref={textColorShiftRef}
       style={{ '--text-color': colorTheme.dark } as React.CSSProperties}
     >

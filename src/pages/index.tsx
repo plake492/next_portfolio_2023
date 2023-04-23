@@ -1,8 +1,12 @@
 import * as React from 'react'
 import Head from 'next/head'
 import Hero from '@components/components/Hero'
-import About from '@components/components/About'
+import Contact from '@components/components/Contact'
 import Project from '@components/components/Project'
+import Slides from '@components/components/Slides'
+import PageBg from '@components/components/PageBg'
+import GridStripSection from '@components/components/GridStripSection'
+import { colorTheme } from '@components/utils/styleConfig'
 
 export default function Home() {
   return (
@@ -14,10 +18,36 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-light">
-        <Hero />
-        <About />
-        <Project />
+      <main
+        className="bg-dark"
+        id="page-wrapper"
+        style={{ '--color': colorTheme.dark } as React.CSSProperties}
+      >
+        <PageBg>
+          <Hero />
+          <div className="mnt-xxxl">
+            <GridStripSection />
+          </div>
+          <Project project={'node.js'} />
+          <div className="mnt-xxxl">
+            <GridStripSection />
+          </div>
+          <Project project={'GSAP.js'} />
+          {/* <Slides
+            slides={[
+              { text: 'Do', className: 'h3' },
+              { text: 'The', className: 'h2' },
+              { text: 'Dew', className: 'h1' },
+            ]}
+            bgColor="dark"
+          /> */}
+          {/* <div style={{ minHeight: '100vh' }}>
+            {[...Array(12)].map((_, i) => (
+              <div key={i} className={`spacer-${i}`} />
+            ))}
+          </div> */}
+          <Contact />
+        </PageBg>
       </main>
     </>
   )

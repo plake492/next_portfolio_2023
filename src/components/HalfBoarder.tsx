@@ -34,11 +34,11 @@ export default function HalfBoarder({
             flip ? 'border-right right-0' : 'border-left left-0'
           } border-${size} border-${color}`.trim()}
         >
-          <div
+          {/* <div
             className={`opacity-0 position-absolute top-0 w-75 h-75 border-top ${
               flip ? 'border-right right-0' : 'border-left left-0'
             } border-${size} border-${color}`.trim()}
-          ></div>
+          ></div> */}
         </div>
       </div>
       <div

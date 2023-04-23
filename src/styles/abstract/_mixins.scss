@@ -1,0 +1,27 @@
+@mixin stepped-bg($startColor, $endColor, $steps) {
+  $divider: 255;
+  $scaler: $divider / $steps;
+
+  @for $i from 1 through $steps {
+    $scaledStep: $i * $scaler;
+    $redStart: red($startColor);
+    $greenStart: green($startColor);
+    $blueStart: blue($startColor);
+    $redEnd: red($endColor);
+    $greenEnd: green($endColor);
+    $blueEnd: blue($endColor);
+
+    $R: ($redStart * (($divider - $scaledStep) / $divider)) +
+      ($redEnd * ($scaledStep / $divider));
+    $G: ($greenStart * (($divider - $scaledStep) / $divider)) +
+      ($greenEnd * ($scaledStep / $divider));
+    $B: ($blueStart * (($divider - $scaledStep) / $divider)) +
+      ($blueEnd * ($scaledStep / $divider));
+
+    // $height: calc($height - $dec);
+    .spacer-#{$i} {
+      background: rgb($R, $G, $B);
+      height: calc(100vh / $steps);
+    }
+  }
+}

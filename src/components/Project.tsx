@@ -1,27 +1,18 @@
 import * as React from 'react'
 import Image from 'next/image'
-import HalfBoarder from './HalfBoarder'
 import Patricles from './Particles'
 import useAnimation from '@components/hooks/useAnimation'
 import { heroParticlConfig } from '@components/utils/particals/hero'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNodeJs } from '@fortawesome/free-brands-svg-icons'
 import { projectAnimation } from '@components/utils/animations/projectAnimation'
+import { projects } from '../lib/projects'
 
-const text = [
-  'Strong proficiency in JavaScript: You have extensive experience working with JavaScript, and you are well-versed in modern JavaScript frameworks and libraries, such as React, Vue.js, and Angular.',
-  'Expertise in Node.js: You have a deep understanding of Node.js, including its core modules, event-driven architecture, and asynchronous I/O operations.',
-  'Proficiency in server-side technologies: You are skilled in working with server-side technologies such as Express.js, Koa, Hapi, and NestJS.',
-  'Database management skills: You have experience working with various database systems, including MySQL, MongoDB, and PostgreSQL. You are proficient in database design, schema creation, and query optimization.',
-  'Experience with RESTful API design: You are skilled in designing and building RESTful APIs that can be used by clients to interact with your server-side applications.',
-  'Familiarity with DevOps practices: You have experience with continuous integration and deployment (CI/CD), containerization, and cloud-based technologies such as AWS, Azure, or Google Cloud Platform.',
-  'Familiarity with version control systems: You have experience using Git or other version control systems to manage your codebase and collaborate with other developers.',
-  'Strong problem-solving skills: You are a proactive problem-solver who can identify and resolve issues quickly and efficiently.',
-  'Attention to detail: You have a keen eye for detail and are committed to producing high-quality code that meets industry standards.',
-  'Strong communication skills: You can communicate effectively with team members and stakeholders and are comfortable working in an Agile development environment.',
-]
-
-export default function Project(): JSX.Element {
+export default function Project({
+  project,
+}: {
+  project: 'node.js' | 'GSAP.js'
+}): JSX.Element {
   const imgRef = React.useRef(null)
   const textRef = React.useRef(null)
   const cardWrapperRef = React.useRef(null)
@@ -32,9 +23,11 @@ export default function Project(): JSX.Element {
     cardWrapperRef,
   })
 
+  const projectObj: any = projects[project]
+
   return (
     <>
-      <section className="bg-dark py-xl position-relative">
+      <section className=" py-xl position-relative">
         <div className="row py-xxl px-xxl g-xxxl position-relative z-1">
           <div className="col-6 px-md">
             <div
@@ -67,15 +60,9 @@ export default function Project(): JSX.Element {
                 width={100}
                 style={{ color: '#77D154' }}
               />
-              <p className="h3">NodeJS</p>
+              <p className="h3">{project}</p>
             </div>
-            <p className="text-lg">
-              As a Node developer, you possess a broad range of technical skills
-              and expertise that are crucial to building and maintaining
-              high-performance, scalable, and reliable server-side applications
-              using Node.js. Here are some of the key skills and qualities that
-              you should highlight in your portfolio:
-            </p>
+            <p className="text-lg">{projectObj.title}</p>
           </div>
         </div>
         <div className="px-xxxl my-xl position-relative z-1">
@@ -83,16 +70,15 @@ export default function Project(): JSX.Element {
             className="row g-xl py-xl position-relative h-100"
             ref={cardWrapperRef}
           >
-            <HalfBoarder />
-            {text.map((t, index) => (
+            {projectObj.cards.map((content: string, index: number) => (
               <div
-                key={t}
+                key={content}
                 className={`col-6 bg-dark-${
                   index + 1
                 }0 box-shadow p-xl border-rounded`}
               >
                 <p className="text-sm">
-                  {index + 1}) {t}
+                  {index + 1}) {content}
                 </p>
               </div>
             ))}
