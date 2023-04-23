@@ -2,7 +2,7 @@ import * as React from 'react'
 import Head from 'next/head'
 import Hero from '@components/components/Hero'
 import Contact from '@components/components/Contact'
-import Project from '@components/components/Project'
+import Tech from '@components/components/Tech'
 import Slides from '@components/components/Slides'
 import PageBg from '@components/components/PageBg'
 import GridStripSection from '@components/components/GridStripSection'
@@ -28,24 +28,11 @@ export default function Home() {
           <div className="mnt-xxxl">
             <GridStripSection />
           </div>
-          <Project project={'node.js'} />
+          <Tech project={'node.js'} />
           <div className="mnt-xxxl">
             <GridStripSection />
           </div>
-          <Project project={'GSAP.js'} />
-          {/* <Slides
-            slides={[
-              { text: 'Do', className: 'h3' },
-              { text: 'The', className: 'h2' },
-              { text: 'Dew', className: 'h1' },
-            ]}
-            bgColor="dark"
-          /> */}
-          {/* <div style={{ minHeight: '100vh' }}>
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className={`spacer-${i}`} />
-            ))}
-          </div> */}
+          <Tech project={'GSAP.js'} />
           <Contact />
         </PageBg>
       </main>

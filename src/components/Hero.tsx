@@ -6,7 +6,11 @@ import { textColorShiftAnimation } from '@components/utils/animations/textColorS
 import { gridAnimation } from '@components/utils/animations/gridAnimation'
 import { colorTheme } from '@components/utils/styleConfig'
 
-export default function Hero(): JSX.Element {
+export default function Hero({
+  hasGridAnimation,
+}: {
+  hasGridAnimation?: boolean
+}): JSX.Element {
   const containerRef = React.useRef<HTMLDivElement>(null)
 
   const word = 'Fullstack Web Developer'
@@ -17,7 +21,7 @@ export default function Hero(): JSX.Element {
 
   return (
     <section className="flex-center position-relative" id="hero-section">
-      <GridAnimation />
+      {hasGridAnimation ? <GridAnimation /> : null}
       <div
         className="p-xxxl d-flex flex-col gap-xl color-tertiary position-relative w-100 container"
         ref={containerRef}
@@ -32,9 +36,10 @@ export default function Hero(): JSX.Element {
         />
         <TextColorAnimation word={word} />
         <small className="text-sm  ml-auto text-center px-xxl">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita cum
-          esse dolor quasi, illo dicta soluta! Modi, adipisci dolore totam
-          impedit eos officia eius mollitia dolor. Recusandae ab dolorem modi.
+          I am a highly skilled full-stack developer with expertise in Node.js,
+          React.js, Sass, Express.js, and JavaScript ES15. With years of
+          experience under my belt, I am adept at building robust and scalable
+          applications that meet the needs of businesses and individuals alike.
         </small>
         {/* <div className="border border-tertiary border-3 p-md border-rounded bg-dark p-md box-shadow shadow-dark shadow-3">
           <div className="d-flex justify-content-between gap-xl">

@@ -3,11 +3,10 @@ import { isEven } from '../helpers'
 
 export const projectAnimation = <T>(
   gsap: GSAPTypes,
-  { imgRef, textRef, cardWrapperRef }: { [key: string]: React.RefObject<T> }
+  { imgRef, textRef }: { [key: string]: React.RefObject<T> }
 ) => {
   const textWrapperEl = textRef.current as HTMLDivElement
   const imgWrapperEl = imgRef.current as HTMLDivElement
-  const cardWrapperEl = cardWrapperRef.current as HTMLDivElement
 
   // Text Fade in animation
   gsap
@@ -56,27 +55,4 @@ export const projectAnimation = <T>(
       },
       0.02
     )
-
-  // Card anaimations
-  Array.from(cardWrapperEl.children).forEach((el, index) => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: el,
-          start: 'top center+=25%',
-          end: 'bottom center+=25%',
-          toggleActions: 'play none none reverse',
-        },
-      })
-      .from(
-        el,
-        {
-          duration: 1.5,
-          ease: 'power4.out',
-          autoAlpha: 0,
-          x: isEven(index) ? -100 : 100,
-        },
-        0
-      )
-  })
 }
