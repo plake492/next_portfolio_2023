@@ -9,16 +9,40 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import useAnimation from '@components/hooks/useAnimation'
 import { curtainAnimation } from '@components/utils/animations/curtainAnimation'
-import { Form, Input } from '@plake492/form-validation'
+import { Form, Input, Textarea } from '@plake492/form-validation'
+import useTheme from '@components/hooks/useTheme'
 
 export default function Contact(): JSX.Element {
+  const colorTheme = useTheme()
+
+  const formStyles = {
+    shadowColor: colorTheme?.accent,
+    fieldBackgroundColor: '#242424aa',
+    fieldTextColor: colorTheme?.accentLight,
+    fieldPlaceholderTextColor: 'cornflower',
+    fieldBorderColor: 'indego',
+    fieldBorderColorFocus: colorTheme?.tertiary,
+    labelTextColor: colorTheme?.tertiary,
+    errorColor: 'red',
+    successColor: 'orange',
+  }
+
+  const [message, setMessage] = React.useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+
+  const updateMessage = (key: string, val: string): void =>
+    setMessage((prev) => ({ ...prev, [key]: val }))
+
   return (
     <section className="position-relative border-bottom border-left border-right border-5 border-accent">
       {/* <CurtainAnimation /> */}
 
       <div className="row py-xl px-xl">
         <div className="col-2 flex-center gap-xxxl px-xl border-left border-2 border-accent">
-          <FontAwesomeIcon
+          {/* <FontAwesomeIcon
             icon={faMugHot}
             className="color-tertiary-20"
             width={60}
@@ -33,42 +57,66 @@ export default function Contact(): JSX.Element {
             icon={faCss3}
             className="color-tertiary-80"
             width={60}
-          />
+          /> */}
         </div>
         <div
           className="border-left border-right border-accent col-8 position-relative my-xl
           my-xl"
           style={{ minHeight: '90vh' }}
         >
-          <div className="px-xl flex-center h-100 position-relative z-1">
-            {/* <h1 className="color-accent-light">Patrick Lake</h1>
+          <div className="px-xl  h-100 position-relative z-1">
             <p className="color-accent-light text-lg">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt ex
               eveniet, expedita commodi, sed beatae eius mollitia est, laborum
               voluptatibus ad iste quos aspernatur voluptatem minima. Adipisci,
               aut? A, natus!
-            </p> */}
-            <form action="none">
-              <div>
-                <input type="email" placeholder="Email" />
-              </div>
-              <div>
-                <textarea placeholder="Email" />
-              </div>
-              <div>
-                <button type="submit">Submit</button>
-              </div>
-            </form>
-            {/* <Form onSubmit={() => console.log('Form')}>
-              <Input type={'email'} label={'Email'} id={'email'} />
-            </Form> */}
+            </p>
+
+            <div className="">
+              <Form
+                styleOptions={formStyles}
+                formLabel={'Contact'}
+                onSubmit={(event, isSuccess) =>
+                  console.log('isSuccess ==>', isSuccess)
+                }
+                noValidate
+              >
+                <Input
+                  type={'text'}
+                  label={'Name'}
+                  id={'name'}
+                  col={6}
+                  validationType="text"
+                  isRequired
+                  value={message.name}
+                  onChange={(v) => updateMessage('name', v as string)}
+                />
+                <Input
+                  type={'email'}
+                  label={'Email'}
+                  id={'email'}
+                  col={6}
+                  validationType="email"
+                  isRequired
+                  value={message.email}
+                  onChange={(v) => updateMessage('email', v as string)}
+                />
+                <Textarea
+                  label={'Message'}
+                  id="message"
+                  value={message.message}
+                  onChange={(v) => updateMessage('message', v as string)}
+                />
+              </Form>
+            </div>
+            {JSON.stringify(message)}
           </div>
           <div className="position-absolute mt-xl top-50 left-50 absolute-center z-0 w-100">
             <SuperSVG />
           </div>
         </div>
         <div className="col-2 flex-center gap-xxxl px-xl border-right border-2 border-accent">
-          <FontAwesomeIcon
+          {/* <FontAwesomeIcon
             icon={faNodeJs}
             className="color-tertiary-20"
             width={60}
@@ -82,7 +130,7 @@ export default function Contact(): JSX.Element {
             icon={faSquareJs}
             className="color-tertiary-80"
             width={60}
-          />
+          /> */}
         </div>
       </div>
     </section>

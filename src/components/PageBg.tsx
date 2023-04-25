@@ -1,5 +1,5 @@
 import useAnimation, { GSAPTypes } from '@components/hooks/useAnimation'
-import { colorTheme } from '@components/utils/styleConfig'
+import useTheme from '@components/hooks/useTheme'
 import React from 'react'
 
 export default function PageBg({ children }: { children: React.ReactNode }) {
@@ -11,25 +11,29 @@ export default function PageBg({ children }: { children: React.ReactNode }) {
 
   const refRef = React.useRef(null)
 
+  const colorTheme = useTheme()
+
   const animation = (gsap: GSAPTypes, { refRef }: any) => {
     gsap
       .timeline({
         scrollTrigger: {
-          target: globalThis.document,
+          trigger: document.querySelectorAll('#page-wrapper'),
           start: 'top top',
           end: 'bottom bottom',
-          scrub: true,
+          scrub: 2,
         },
       })
-      .to(globalThis.document.querySelector('#page-wrapper'), {
-        '--color': colorTheme.primary,
+      .to(globalThis.document.querySelectorAll('.color-change-bg'), {
+        '--color': colorTheme?.primary,
       })
       .to(
         refRef.current.children[0],
         {
-          xPercent: 90,
-          yPercent: -10,
-          rotate: 360,
+          xPercent: 175,
+          yPercent: -100,
+          rotate: 200,
+          '--a': colorTheme?.tertiary,
+          '--b': colorTheme?.accent,
         },
         0
       )
@@ -46,7 +50,7 @@ export default function PageBg({ children }: { children: React.ReactNode }) {
         refRef.current.children[1],
         {
           xPercent: 100,
-          yPercent: -200,
+          yPercent: -100,
           rotate: 360,
         },
         0
@@ -69,7 +73,7 @@ export default function PageBg({ children }: { children: React.ReactNode }) {
         <div className="page-bg__shape md"></div>
         <div className="page-bg__shape lg"></div>
         <div className="page-bg__shape sm"></div>
-        <div className="page-bg__shape md-b"></div>
+        {/* <div className="page-bg__shape md-b"></div> */}
       </div>
 
       <div className={styles.sectionOne}>{children}</div>

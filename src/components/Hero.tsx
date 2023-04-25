@@ -4,7 +4,7 @@ import useAnimation from '@components/hooks/useAnimation'
 import { heroTextFadeAnimations } from '@components/utils/animations/heroTextAnimation'
 import { textColorShiftAnimation } from '@components/utils/animations/textColorShiftAnimation'
 import { gridAnimation } from '@components/utils/animations/gridAnimation'
-import { colorTheme } from '@components/utils/styleConfig'
+import useTheme from '@components/hooks/useTheme'
 
 export default function Hero({
   hasGridAnimation,
@@ -23,19 +23,19 @@ export default function Hero({
     <section className="flex-center position-relative" id="hero-section">
       {hasGridAnimation ? <GridAnimation /> : null}
       <div
-        className="p-xxxl d-flex flex-col gap-xl color-tertiary position-relative w-100 container"
+        className="p-xxxl d-flex flex-col gap-xl color-accent-60 position-relative w-100 container"
         ref={containerRef}
       >
         <h1 className="sr-only skip">Patrick Lake</h1>
         <HalfBoarder
-          color="tertiary"
+          color="accent"
           size="3"
           flip
           iterate={1}
           className="skip"
         />
         <TextColorAnimation word={word} />
-        <small className="text-sm  ml-auto text-center px-xxl">
+        <small className="text-sm ml-auto text-center px-xxl">
           I am a highly skilled full-stack developer with expertise in Node.js,
           React.js, Sass, Express.js, and JavaScript ES15. With years of
           experience under my belt, I am adept at building robust and scalable
@@ -108,17 +108,19 @@ function GridAnimation() {
 }
 
 function TextColorAnimation({ word }: { word: string }) {
+  const colorTheme = useTheme()
   const textColorShiftRef = React.useRef<HTMLDivElement>(null)
 
   useAnimation<HTMLDivElement>(textColorShiftAnimation, {
     textColorShiftRef,
+    colorTheme,
   })
 
   return (
     <div
       className="split-text skip border border-primary px-md py-md bg-dark-40"
       ref={textColorShiftRef}
-      style={{ '--text-color': colorTheme.dark } as React.CSSProperties}
+      style={{ '--text-color': colorTheme?.dark } as React.CSSProperties}
     >
       {word.split(' ').map(
         (wordChunk: string, i: number): JSX.Element => (

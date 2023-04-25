@@ -3,10 +3,8 @@ import Head from 'next/head'
 import Hero from '@components/components/Hero'
 import Contact from '@components/components/Contact'
 import Tech from '@components/components/Tech'
-import Slides from '@components/components/Slides'
 import PageBg from '@components/components/PageBg'
 import GridStripSection from '@components/components/GridStripSection'
-import { colorTheme } from '@components/utils/styleConfig'
 
 export default function Home() {
   return (
@@ -18,12 +16,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main
-        className="bg-dark"
-        id="page-wrapper"
-        style={{ '--color': colorTheme.dark } as React.CSSProperties}
-      >
-        <PageBg>
+      <>
+        <main className="position-relative z-1">
+          {/* <PageBg> */}
           <Hero />
           <div className="mnt-xxxl">
             <GridStripSection />
@@ -34,8 +29,9 @@ export default function Home() {
           </div>
           <Tech project={'GSAP.js'} />
           <Contact />
-        </PageBg>
-      </main>
+          {/* </PageBg> */}
+        </main>
+      </>
     </>
   )
 }

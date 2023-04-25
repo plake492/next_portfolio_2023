@@ -6,9 +6,11 @@ import Tech from '@components/components/Tech'
 import Slides from '@components/components/Slides'
 import PageBg from '@components/components/PageBg'
 import GridStripSection from '@components/components/GridStripSection'
-import { colorTheme } from '@components/utils/styleConfig'
+import useTheme from '@components/hooks/useTheme'
 
 export default function FunFunFun() {
+  const colorTheme = useTheme()
+
   return (
     <>
       <Head>
@@ -21,7 +23,7 @@ export default function FunFunFun() {
       <main
         className="bg-dark"
         id="page-wrapper"
-        style={{ '--color': colorTheme.dark } as React.CSSProperties}
+        style={{ '--color': colorTheme?.dark } as React.CSSProperties}
       >
         <PageBg>
           <Hero hasGridAnimation />

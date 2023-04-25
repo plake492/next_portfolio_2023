@@ -1,12 +1,12 @@
 import { GSAPTypes } from '@components/hooks/useAnimation'
-import { colorTheme } from '../styleConfig'
 
 export interface TextColorAnimationRefs {
   textColorShiftRef: React.RefObject<HTMLDivElement>
 }
 export const textColorShiftAnimation = <T>(
   gsap: GSAPTypes,
-  { textColorShiftRef }: { [key: string]: React.RefObject<T> }
+  { textColorShiftRef }: { [key: string]: React.RefObject<T> },
+  colorTheme: { [ket: string]: string }
 ) => {
   // Handle Text Color Animation
   const textSpanEls = (textColorShiftRef.current as HTMLDivElement).children
@@ -43,7 +43,7 @@ export const textColorShiftAnimation = <T>(
       el.children,
       {
         stagger: 0.1,
-        '--text-color': colorTheme.tertiary,
+        '--text-color': colorTheme?.tertiary,
       },
       0
     )
@@ -52,7 +52,7 @@ export const textColorShiftAnimation = <T>(
       el.children,
       {
         stagger: 0.05,
-        '--text-color': colorTheme.accent,
+        '--text-color': colorTheme?.accent,
       },
       0.4
     )
@@ -61,7 +61,7 @@ export const textColorShiftAnimation = <T>(
       el.children,
       {
         stagger: 0.075,
-        '--text-color': colorTheme.tertiary,
+        '--text-color': colorTheme?.tertiary,
       },
       0.8
     )
@@ -70,7 +70,7 @@ export const textColorShiftAnimation = <T>(
       el.children,
       {
         stagger: 0.1,
-        '--text-color': colorTheme.dark,
+        '--text-color': colorTheme?.dark,
       },
       1
     )

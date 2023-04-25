@@ -1,7 +1,8 @@
 import { IOptions, RecursivePartial } from 'tsparticles-engine'
-import { colorTheme } from '../styleConfig'
 
-export const heroParticlConfig: RecursivePartial<IOptions> = {
+export const heroParticlConfig = (colorTheme: {
+  [key: string]: string
+}): RecursivePartial<IOptions> => ({
   fpsLimit: 120,
   interactivity: {
     modes: {
@@ -17,10 +18,10 @@ export const heroParticlConfig: RecursivePartial<IOptions> = {
   pauseOnOutsideViewport: true,
   particles: {
     color: {
-      value: colorTheme.tertiary,
+      value: colorTheme?.tertiary,
     },
     links: {
-      color: colorTheme.tertiary,
+      color: colorTheme?.tertiary,
       distance: 120,
       enable: true,
       opacity: 0.6,
@@ -55,4 +56,4 @@ export const heroParticlConfig: RecursivePartial<IOptions> = {
   },
   detectRetina: true,
   fullScreen: { enable: false },
-}
+})

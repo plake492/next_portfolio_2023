@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNodeJs } from '@fortawesome/free-brands-svg-icons'
 import { projectAnimation } from '@components/utils/animations/projectAnimation'
 import { projects } from '../lib/projects'
+import useTheme from '@components/hooks/useTheme'
 
 export default function Tech({
   project,
@@ -16,6 +17,8 @@ export default function Tech({
   const imgRef = React.useRef(null)
   const textRef = React.useRef(null)
   const cardWrapperRef = React.useRef(null)
+
+  const colorTheme = useTheme()
 
   useAnimation<HTMLDivElement>(projectAnimation, {
     imgRef,
@@ -27,7 +30,7 @@ export default function Tech({
 
   return (
     <>
-      <section className=" py-xl position-relative">
+      <section className="py-xl position-relative" id={project}>
         <div className="row py-xxl px-xxl g-xxxl position-relative z-1">
           <div className="col-6 px-md">
             <div
@@ -86,7 +89,7 @@ export default function Tech({
         </div>
 
         <Patricles
-          options={heroParticlConfig}
+          options={heroParticlConfig(colorTheme)}
           className="position-absolute top-0 left-0 w-100 h-100 z-0"
         />
       </section>
