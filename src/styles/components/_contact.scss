@@ -1,3 +1,12 @@
+#contact {
+  background: linear-gradient(
+    135deg,
+    $bg-secondary 0%,
+    $bg-primary 50%,
+    $bg-dark 100%
+  );
+}
+
 #hexagon-aniamtion {
   & > * {
     transform: rotate(0deg);

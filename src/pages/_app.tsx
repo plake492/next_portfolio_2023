@@ -4,7 +4,7 @@ import '@components/styles/global.scss'
 import useTheme from '@components/hooks/useTheme'
 import type { AppProps } from 'next/app'
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
   const colorTheme = useTheme()
 
   return (
@@ -14,8 +14,8 @@ export default function App({ Component, pageProps }: AppProps) {
       style={{ '--color': colorTheme?.dark } as React.CSSProperties}
     >
       <PageBg>
-        <Header />
-        <Component {...pageProps} />
+        {router.asPath !== '/theme' ? <Header /> : null}
+        <Component {...pageProps} key={router.asPath} />
       </PageBg>
     </div>
   )

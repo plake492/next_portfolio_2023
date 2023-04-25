@@ -6,7 +6,7 @@ export interface TextColorAnimationRefs {
 export const textColorShiftAnimation = <T>(
   gsap: GSAPTypes,
   { textColorShiftRef }: { [key: string]: React.RefObject<T> },
-  colorTheme: { [ket: string]: string }
+  colorTheme: { [ket: string]: string | number }
 ) => {
   // Handle Text Color Animation
   const textSpanEls = (textColorShiftRef.current as HTMLDivElement).children

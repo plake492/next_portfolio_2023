@@ -1,10 +1,20 @@
-$bg-primary: #0f2238;
-$bg-secondary: #455cff;
-$bg-accent: #fe0095;
-$bg-tertiary: #682be2;
-$bg-accent-light: lighten(hsl(208, 56%, 52%), 20%);
-$bg-light: #a0abb7;
-$bg-dark: #010305;
+// OPTION 1
+$bg-primary: #020f29;
+$bg-secondary: #1c2a47;
+$bg-accent: #8fffe6;
+$bg-tertiary: #981ee2;
+$bg-error: #e52525;
+$bg-light: #f3f1f3;
+$bg-dark: #050d1f;
+
+// OPTION 2
+
+// $bg-primary: #0f2238;
+// $bg-secondary: #2a4666;
+// $bg-accent: #6d33e2;
+// $bg-tertiary: #fe0095;
+// $bg-light: #a0abb7;
+// $bg-dark: #010305;
 
 $secondary-font: 'Montserrat', sans-serif;
 $base-font-size: 22;

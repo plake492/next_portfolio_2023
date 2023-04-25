@@ -41,46 +41,6 @@ export default function Hero({
           experience under my belt, I am adept at building robust and scalable
           applications that meet the needs of businesses and individuals alike.
         </small>
-        {/* <div className="border border-tertiary border-3 p-md border-rounded bg-dark p-md box-shadow shadow-dark shadow-3">
-          <div className="d-flex justify-content-between gap-xl">
-            <FontAwesomeIcon
-              className="color-tertiary"
-              icon={faDev}
-              bounce
-              width={60}
-            />
-            <FontAwesomeIcon
-              className="color-tertiary-20"
-              icon={faAws}
-              bounce
-              width={60}
-            />
-            <FontAwesomeIcon
-              className="color-tertiary-40"
-              icon={faCss3}
-              bounce
-              width={60}
-            />
-            <FontAwesomeIcon
-              className="color-tertiary-60"
-              icon={faNodeJs}
-              bounce
-              width={60}
-            />
-            <FontAwesomeIcon
-              className="color-tertiary-60"
-              icon={faSass}
-              bounce
-              width={60}
-            />
-            <FontAwesomeIcon
-              className="color-tertiary-40"
-              icon={faCss3}
-              bounce
-              width={60}
-            />
-          </div>
-        </div> */}
       </div>
     </section>
   )
@@ -113,12 +73,11 @@ function TextColorAnimation({ word }: { word: string }) {
 
   useAnimation<HTMLDivElement>(textColorShiftAnimation, {
     textColorShiftRef,
-    colorTheme,
   })
 
   return (
     <div
-      className="split-text skip border border-primary px-md py-md bg-dark-40"
+      className="split-text skip border border-primary border-pill px-md py-md bg-dark-40"
       ref={textColorShiftRef}
       style={{ '--text-color': colorTheme?.dark } as React.CSSProperties}
     >

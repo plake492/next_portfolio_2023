@@ -43,7 +43,7 @@ export default function useTheme() {
       )
 
       const colorTheme: { [key: string]: string | number } = cssVars
-
+      console.log(' colorTheme==>', colorTheme)
       setTheme(colorTheme)
     }
   }, [theme])

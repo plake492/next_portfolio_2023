@@ -12,8 +12,8 @@
 @import '../../../node_modules/@plake492/css_utilities/src/base-maps';
 
 $add-bg-colors: (
-  accent-light: $bg-accent-light,
   light: $bg-light,
+  error: $bg-error,
 );
 
 $bg-colors: map.merge($bg-colors, $add-bg-colors);
