@@ -1,7 +1,7 @@
 import { IOptions, RecursivePartial } from 'tsparticles-engine'
 
 export const heroParticlConfig = (colorTheme: {
-  [key: string]: string
+  [key: string]: string | number
 }): RecursivePartial<IOptions> => ({
   fpsLimit: 120,
   interactivity: {
@@ -18,7 +18,7 @@ export const heroParticlConfig = (colorTheme: {
   pauseOnOutsideViewport: true,
   particles: {
     color: {
-      value: colorTheme?.tertiary,
+      value: colorTheme?.tertiary as string,
     },
     links: {
       color: colorTheme?.tertiary,

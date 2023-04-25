@@ -26,7 +26,13 @@ export default function useTheme() {
         acc: string[],
         sheet: CSSStyleSheet
       ): string[] =>
-        (acc = [...acc, ...Array.from(sheet.cssRules).reduce(getCssRules, [])])
+        (acc = [
+          ...acc,
+          ...Array.from(sheet.cssRules as unknown as any[]).reduce(
+            getCssRules,
+            []
+          ),
+        ])
 
       const styleSheets: CSSStyleSheet[] = Array.from(
         target.document.styleSheets
