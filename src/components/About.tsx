@@ -14,7 +14,7 @@ export default function About() {
 
   return (
     <section
-      className="h-vh-100 border border-top border-5 border-tertiary overflow-hidden h-min-vh-100 "
+      className="h-vh-100 border border-top border-5 border-tertiary overflow-hidden h-min-vh-100 position-relative"
       ref={aboutRef}
       style={{ backgroundColor: '#000000' }}
       id="about"
@@ -80,6 +80,15 @@ export default function About() {
           </div>
         </div>
       </GridStripWrapper>
+      <div
+        className="w-vw-100 py-xs position-absolute bottom-0 left-0 scroll-progress-bar"
+        style={{
+          bottom: '-0.227rem',
+          left: '-0.227rem',
+
+          background: `linear-gradient(45deg, ${theme?.tertiary}, ${theme?.accent})`,
+        }}
+      ></div>
     </section>
   )
 }

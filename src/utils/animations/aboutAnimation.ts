@@ -52,6 +52,20 @@ export const aboutAnimation = (
       },
       0
     )
+    .from(
+      (aboutRef.current as HTMLDivElement).querySelector(
+        '.scroll-progress-bar'
+      ),
+      { width: 0, duration: 2 },
+      0
+    )
+    .to(
+      (aboutRef.current as HTMLDivElement).querySelector(
+        '.scroll-progress-bar'
+      ),
+      { autoAlpha: 0, duration: 0.5 },
+      '>-0.25'
+    )
 
   tl.to(
     aboutEl.querySelector('.about-icon'),

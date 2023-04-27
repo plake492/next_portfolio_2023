@@ -4,20 +4,12 @@ import Image from 'next/image'
 
 const links = [
   {
-    href: '/',
-    text: 'Home',
+    href: '#about',
+    text: 'About Me',
   },
   {
-    href: '/evermore-resort',
-    text: 'Evermore',
-  },
-  {
-    href: '/#node.js',
-    text: 'Tech',
-  },
-  {
-    href: '/evermore-resort',
-    text: 'Evermore',
+    href: '#contact',
+    text: 'Contact',
   },
   {
     href: '/evermore-resort',
@@ -62,7 +54,7 @@ export default function Header() {
         </Link>
       </div>
       <div>
-        <ul className="d-flex gap-md align-items-center">
+        <ul className="d-flex gap-md align-items-center no-list-style">
           {links.map(({ href, text }, index) => (
             <li key={text}>
               <Link className={`link--nav mb-none`} href={href}>

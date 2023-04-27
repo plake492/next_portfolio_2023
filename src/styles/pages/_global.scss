@@ -6,6 +6,12 @@ html {
   scroll-behavior: smooth;
 }
 
+ul {
+  li {
+    list-style: none;
+  }
+}
+
 #page-wrapper {
   position: relative;
 }
