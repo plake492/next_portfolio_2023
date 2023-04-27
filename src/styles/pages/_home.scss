@@ -1,1 +1,14 @@
 @include stepped-bg($bg-primary, $bg-tertiary, 12);
+
+main {
+  // scroll-snap-points-y: repeat(100vh);
+  // scroll-snap-type: y mandatory;
+  // scroll-snap-type: mandatory;
+  // overflow: auto;
+  // height: 100vh;
+
+  // .scroll-to {
+  //   scroll-snap-align: start;
+  //   height: 100vh;
+  // }
+}

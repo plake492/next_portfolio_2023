@@ -4,7 +4,9 @@ import useAnimation from '@components/hooks/useAnimation'
 import { heroTextFadeAnimations } from '@components/utils/animations/heroTextAnimation'
 import { textColorShiftAnimation } from '@components/utils/animations/textColorShiftAnimation'
 import { gridAnimation } from '@components/utils/animations/gridAnimation'
-import useTheme from '@components/hooks/useTheme'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Hero({
   hasGridAnimation,
@@ -22,8 +24,9 @@ export default function Hero({
   return (
     <section className="flex-center position-relative" id="hero-section">
       {hasGridAnimation ? <GridAnimation /> : null}
+
       <div
-        className="p-xxxl d-flex flex-col gap-xl color-accent-60 position-relative w-100 container"
+        className="p-md p-md-xl p-lg-xxxl d-flex flex-col gap-xl position-relative z-2 w-100 container"
         ref={containerRef}
       >
         <h1 className="sr-only skip">Patrick Lake</h1>
@@ -35,13 +38,19 @@ export default function Hero({
           className="skip"
         />
         <TextColorAnimation word={word} />
-        <small className="text-sm ml-auto text-center px-xxl">
+        <small className="text-sm ml-auto text-center px-md px-md-xl px-lg-xl">
           I am a highly skilled full-stack developer with expertise in Node.js,
           React.js, Sass, Express.js, and JavaScript ES15. With years of
           experience under my belt, I am adept at building robust and scalable
           applications that meet the needs of businesses and individuals alike.
         </small>
       </div>
+      <a
+        className="hero-arrow-down color-accent link--no-underline c-pointer"
+        href="#about"
+      >
+        <FontAwesomeIcon width={45} icon={faChevronDown} />
+      </a>
     </section>
   )
 }
@@ -68,16 +77,14 @@ function GridAnimation() {
 }
 
 function TextColorAnimation({ word }: { word: string }) {
-  const colorTheme = useTheme()
   const textColorShiftRef = React.useRef<HTMLDivElement>(null)
-
-  useAnimation<HTMLDivElement>(textColorShiftAnimation, {
+  const colorTheme = useAnimation<HTMLDivElement>(textColorShiftAnimation, {
     textColorShiftRef,
   })
 
   return (
     <div
-      className="split-text skip border border-primary border-pill px-md py-md bg-dark-40"
+      className="px-md px-md-xl px-lg-xl"
       ref={textColorShiftRef}
       style={{ '--text-color': colorTheme?.dark } as React.CSSProperties}
     >

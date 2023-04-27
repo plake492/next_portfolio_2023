@@ -9,14 +9,21 @@
 // Grab the sass overrides
 @import '../theme/';
 
+$text-header-dark: #8fe4ff;
+
 @import '../../../node_modules/@plake492/css_utilities/src/base-maps';
 
 $add-bg-colors: (
   light: $bg-light,
   error: $bg-error,
+  // alt: $bg-accent-alt,
 );
 
 $bg-colors: map.merge($bg-colors, $add-bg-colors);
 $target-colors: map.merge($bg-colors, $target-colors);
 
 @import '../../../node_modules/@plake492/css_utilities/src/post-vars';
+
+:root {
+  --text-color-header: #{$text-header-dark};
+}

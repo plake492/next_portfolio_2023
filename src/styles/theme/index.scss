@@ -6,6 +6,7 @@ $bg-tertiary: #981ee2;
 $bg-error: #e52525;
 $bg-light: #f3f1f3;
 $bg-dark: #050d1f;
+$text-header-dark: $bg-accent;
 
 // OPTION 2
 $bg-primary: #0f2238;
@@ -14,7 +15,12 @@ $bg-accent: #6d33e2;
 $bg-tertiary: #fe0095;
 $bg-light: #a0abb7;
 $bg-dark: #010305;
+$bg-accent-alt: #8fe4ff;
+$text-header-dark: #8fe4ff;
 
-$secondary-font: 'Montserrat', sans-serif;
+$secondary-font: 'Walkway-bold', Arial, Helvetica, sans-serif;
+$primary-font: 'Silka', Arial, Helvetica, sans-serif;
+$alt-font: 'W95FA', Arial, Helvetica, sans-serif;
+
 $base-font-size: 22;
 $base-spacer: rem(22);

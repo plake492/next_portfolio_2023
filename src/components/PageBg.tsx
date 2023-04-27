@@ -68,15 +68,15 @@ export default function PageBg({ children }: { children: React.ReactNode }) {
   useAnimation(animation, { refRef })
 
   return (
-    <div>
-      <div className="page-bg" ref={refRef}>
+    <main>
+      <aside className="page-bg pe-none" ref={refRef}>
         <div className="page-bg__shape md"></div>
         <div className="page-bg__shape lg"></div>
         <div className="page-bg__shape sm"></div>
         {/* <div className="page-bg__shape md-b"></div> */}
-      </div>
+      </aside>
 
-      <div className={styles.sectionOne}>{children}</div>
-    </div>
+      <section className={styles.sectionOne}>{children}</section>
+    </main>
   )
 }

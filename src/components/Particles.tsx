@@ -25,16 +25,16 @@ export default function ParticleComponent({
   }, [])
 
   const particlesLoaded = React.useCallback(
-    async (container: Container | undefined) => {
-      console.log(container)
-    },
+    async (container: Container | undefined) => {},
     []
   )
+
+  const id = React.useId
 
   return (
     <Particles
       className={className}
-      id="tsparticles"
+      id={id()}
       init={particlesInit}
       loaded={particlesLoaded}
       width="100%"

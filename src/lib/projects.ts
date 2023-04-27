@@ -27,3 +27,14 @@ export const projects: { [key: string]: { title: string; cards: string[] } } = {
     ],
   },
 }
+
+export const tools: any = [
+  { title: 'javaScript', blurb: 'text here', level: 94 },
+  { title: 'scss', blurb: 'text here', level: 95 },
+  { title: 'node.js', blurb: 'text here', level: 90 },
+  { title: 'react.js', blurb: 'text here', level: 86 },
+  { title: 'next.js', blurb: 'text here', level: 65 },
+  { title: 'gsap.js', blurb: 'text here', level: 70 },
+  { title: 'Firebase', blurb: 'text here', level: 45 },
+  { title: 'SQL', blurb: 'text here', level: 35 },
+]

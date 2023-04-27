@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'W95FA';
+  src: url('../../../public/assets/fonts/W95FA/w95fa.woff2') format('woff2'),
+    url('../../../public/assets/fonts/W95FA/w95fa.woff') format('woff'); /* Pretty Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Walkway-regular';
+  src: url('../../../public/assets/fonts/Walkway/Walkway_SemiBold.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Walkway-bold';
+  src: url('../../../public/assets/fonts/Walkway/Walkway_Bold.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Silka';
+  src: url('../../../public/assets/fonts/Silka/silka-regular-webfont.woff2')
+      format('woff2'),
+    url('../../../public/assets/fonts/Silka/silka-regular-webfont.woff')
+      format('woff'),
+    url('../../../public/assets/fonts/Silka/silka-regular-webfont.ttf')
+      format('ttf'),
+    url('../../../public/assets/fonts/Silka/silka-regular-webfont.eot')
+      format('eot');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Silka-italic';
+  src: url('../../../public/assets/fonts/Silka/silka-regularitalic-webfont.woff2')
+      format('woff2'),
+    url('../../../public/assets/fonts/Silka/silka-regularitalic-webfont.woff')
+      format('woff'),
+    url('../../../public/assets/fonts/Silka/silka-regularitalic-webfont.ttf')
+      format('ttf'),
+    url('../../../public/assets/fonts/Silka/silka-regularitalic-webfont.eot')
+      format('eot');
+  font-weight: normal;
+  font-style: italic;
+}

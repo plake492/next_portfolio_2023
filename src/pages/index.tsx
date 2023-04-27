@@ -1,10 +1,10 @@
 import * as React from 'react'
 import Head from 'next/head'
 import Hero from '@components/components/Hero'
-import Contact from '@components/components/Contact'
-import Tech from '@components/components/Tech'
+import Projects from '@components/components/Projecs'
+import GridStripWrapper from '@components/components/GridStripWrapper'
 import PageBg from '@components/components/PageBg'
-import GridStripSection from '@components/components/GridStripSection'
+import About from '@components/components/About'
 
 export default function Home() {
   return (
@@ -16,22 +16,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <>
-        <main className="position-relative z-1">
-          {/* <PageBg> */}
+      <PageBg>
+        <GridStripWrapper dir="bl">
           <Hero />
-          <div className="mnt-xxxl">
-            <GridStripSection />
-          </div>
-          <Tech project={'node.js'} />
-          <div className="mnt-xxxl">
-            <GridStripSection />
-          </div>
-          <Tech project={'GSAP.js'} />
-          <Contact />
-          {/* </PageBg> */}
-        </main>
-      </>
+        </GridStripWrapper>
+        <About />
+        <Projects project={'node.js'} />
+        <Projects project={'GSAP.js'} />
+      </PageBg>
     </>
   )
 }

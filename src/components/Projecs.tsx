@@ -9,7 +9,7 @@ import { projectAnimation } from '@components/utils/animations/projectAnimation'
 import { projects } from '../lib/projects'
 import useTheme from '@components/hooks/useTheme'
 
-export default function Tech({
+export default function Projects({
   project,
 }: {
   project: 'node.js' | 'GSAP.js'
@@ -68,7 +68,7 @@ export default function Tech({
             <p className="text-lg">{projectObj.title}</p>
           </div>
         </div>
-        <div className="px-xxxl my-xl position-relative z-1">
+        {/* <div className="px-xxxl my-xl position-relative z-1">
           <div
             className="row g-xl py-xl position-relative h-100"
             ref={cardWrapperRef}
@@ -86,7 +86,7 @@ export default function Tech({
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <Patricles
           options={heroParticlConfig(colorTheme)}

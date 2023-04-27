@@ -6,7 +6,13 @@ import {
 import { toKebabCase } from '@components/utils/helpers'
 import * as React from 'react'
 
-const colorTargets: string[] = ['primary', 'secondary', 'tertiary', 'accent']
+const colorTargets: string[] = [
+  'primary',
+  'secondary',
+  'tertiary',
+  'accent',
+  'alt',
+]
 
 export default function Theme() {
   const [colors, setColors] = React.useState<objectGenericString | null>(null)
@@ -56,21 +62,21 @@ export default function Theme() {
         {/* BG - PRIMARY */}
         <div className="h-min-vh-100 bg-primary text-light">
           <div className="container-xl py-xl">
-            <h1 className="color-accent">Testing Header 1</h1>
+            <h1 className="color-alt">Testing Header 1</h1>
             <p className="text-lg">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Veritatis placeat quibusdam quo temporibus excepturi
               exercitationem vel, officia tempora sunt repudiandae a. Animi,
               fugiat consequuntur in laboriosam vitae suscipit cupiditate ullam?
             </p>
-            <h2 className="color-accent">Testing Header 2</h2>
+            <h2 className="color-alt">Testing Header 2</h2>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Veritatis placeat quibusdam quo temporibus excepturi
               exercitationem vel, officia tempora sunt repudiandae a. Animi,
               fugiat consequuntur in laboriosam vitae suscipit cupiditate ullam?
             </p>
-            <h3 className="color-accent">Testing Header 3</h3>
+            <h3 className="color-alt">Testing Header 3</h3>
             <p className="text-sm">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Veritatis placeat quibusdam quo temporibus excepturi
@@ -92,7 +98,7 @@ export default function Theme() {
             </p>
             <div className="row g-md">
               <div className="col-6 p-md border-primary bg-primary border-rounded box-shadow shadow-3 shadow-primary border border-dark">
-                <h5 className="color-accent">Card</h5>
+                <h5 className="color-alt">Card</h5>
                 <div className="border border-accent p-md border-rounded">
                   <p className="text-sm">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -103,7 +109,7 @@ export default function Theme() {
                 </div>
               </div>
               <div className="col-6 p-md border-primary bg-primary border-rounded box-shadow shadow-3 shadow-primary border border-dark">
-                <h5 className="color-accent">Card</h5>
+                <h5 className="color-alt">Card</h5>
                 <div className="border border-accent p-md border-rounded">
                   <p className="text-sm">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -114,7 +120,7 @@ export default function Theme() {
                 </div>
               </div>
               <div className="col-6 p-md border-primary bg-primary border-rounded box-shadow shadow-3 shadow-primary border border-dark">
-                <h5 className="color-accent">Card</h5>
+                <h5 className="color-alt">Card</h5>
                 <div className="border border-accent p-md border-rounded">
                   <p className="text-sm">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -125,7 +131,7 @@ export default function Theme() {
                 </div>
               </div>
               <div className="col-6 p-md border-primary bg-primary border-rounded box-shadow shadow-3 shadow-primary border border-dark">
-                <h5 className="color-accent">Card</h5>
+                <h5 className="color-alt">Card</h5>
                 <div className="border border-accent p-md border-rounded">
                   <p className="text-sm">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.

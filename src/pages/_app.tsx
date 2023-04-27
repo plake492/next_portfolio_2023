@@ -1,22 +1,25 @@
-import Header from '@components/components/Header'
-import PageBg from '@components/components/PageBg'
-import '@components/styles/global.scss'
-import useTheme from '@components/hooks/useTheme'
 import type { AppProps } from 'next/app'
+import Header from '@components/components/Header'
+import useTheme from '@components/hooks/useTheme'
+import Footer from '@components/components/Footer'
+import '@components/styles/index.scss'
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const colorTheme = useTheme()
 
   return (
-    <div
-      className="bg-dark color-change-bg"
-      id="page-wrapper"
-      style={{ '--color': colorTheme?.dark } as React.CSSProperties}
-    >
-      <PageBg>
-        {router.asPath !== '/theme' ? <Header /> : null}
+    <>
+      <Header />
+      <div
+        className="bg-dark color-change-bg"
+        id="page-wrapper"
+        style={{ '--color': colorTheme?.dark } as React.CSSProperties}
+      >
         <Component {...pageProps} key={router.asPath} />
-      </PageBg>
-    </div>
+      </div>
+      <div className="position-relative z-3">
+        <Footer />
+      </div>
+    </>
   )
 }

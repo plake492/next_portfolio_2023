@@ -6,11 +6,11 @@ export interface TextColorAnimationRefs {
 export const textColorShiftAnimation = <T>(
   gsap: GSAPTypes,
   { textColorShiftRef }: { [key: string]: React.RefObject<T> },
-  colorTheme?: { [ket: string]: string | number }
+  colorTheme?: { [key: string]: string | number }
 ) => {
   // Handle Text Color Animation
   const textSpanEls = (textColorShiftRef.current as HTMLDivElement).children
-
+  console.log('colorTheme ==>', colorTheme)
   gsap.from(textSpanEls[0], {
     duration: 2,
     autoAlpha: 0,
@@ -18,32 +18,30 @@ export const textColorShiftAnimation = <T>(
   })
 
   gsap.from(textSpanEls[1], {
-    x: -100,
+    x: -75,
     duration: 2,
     autoAlpha: 0,
     delay: 1,
   })
 
   gsap.from(textSpanEls[2], {
-    x: 100,
+    x: 75,
     duration: 2,
     autoAlpha: 0,
-    delay: 1.5,
+    delay: 1,
   })
 
   Array.from(textSpanEls).map((el, index) => {
     const tl = gsap.timeline({
-      defaults: { duration: 2 },
+      defaults: { duration: 3 },
       delay: 2,
-      repeat: 1,
-      repeatDelay: 1,
     })
 
     tl.to(
       el.children,
       {
         stagger: 0.1,
-        '--text-color': colorTheme?.tertiary,
+        '--text-color-header': colorTheme?.tertiary,
       },
       0
     )
@@ -52,7 +50,7 @@ export const textColorShiftAnimation = <T>(
       el.children,
       {
         stagger: 0.05,
-        '--text-color': colorTheme?.accent,
+        '--text-color-header': colorTheme?.accent,
       },
       0.4
     )
@@ -61,7 +59,7 @@ export const textColorShiftAnimation = <T>(
       el.children,
       {
         stagger: 0.075,
-        '--text-color': colorTheme?.tertiary,
+        '--text-color-header': colorTheme?.tertiary,
       },
       0.8
     )
@@ -70,7 +68,7 @@ export const textColorShiftAnimation = <T>(
       el.children,
       {
         stagger: 0.1,
-        '--text-color': colorTheme?.dark,
+        '--text-color-header': colorTheme?.textColorHeader,
       },
       1
     )

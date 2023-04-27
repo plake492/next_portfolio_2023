@@ -25,7 +25,7 @@ export default function HalfBoarder({
     <>
       <div
         ref={blockOneRef}
-        className={`opacity-0 m-xxl ${className} position-absolute top-0 w-50 h-50 border-top ${
+        className={`opacity-0 m-md m-md-xl m-lg-xxl ${className} position-absolute top-0 w-50 h-50 border-top ${
           flip ? 'border-right right-0' : 'border-left left-0'
         } border-${size} border-${color}`.trim()}
       >
@@ -33,13 +33,7 @@ export default function HalfBoarder({
           className={`opacity-0 position-absolute top-0 w-66 h-66 border-top ${
             flip ? 'border-right right-0' : 'border-left left-0'
           } border-${size} border-${color}`.trim()}
-        >
-          {/* <div
-            className={`opacity-0 position-absolute top-0 w-75 h-75 border-top ${
-              flip ? 'border-right right-0' : 'border-left left-0'
-            } border-${size} border-${color}`.trim()}
-          ></div> */}
-        </div>
+        ></div>
       </div>
       <div
         ref={blockTwoRef}
