@@ -17,3 +17,14 @@
   background-color: $bg-accent;
   // background-color: rgb(255, 132, 0);
 }
+
+.hero-arrow-down {
+  svg {
+    position: relative;
+    transition: transform 300ms ease-in-out;
+
+    &:hover {
+      transform: translateY(8px);
+    }
+  }
+}

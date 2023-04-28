@@ -22,6 +22,7 @@ export default function Contact(): JSX.Element {
   const [formStyles, setFormStyles] = React.useState<objectGenericString>({})
 
   const colorTheme = useTheme()
+
   const contactRef = React.useRef(null)
 
   React.useEffect(() => {

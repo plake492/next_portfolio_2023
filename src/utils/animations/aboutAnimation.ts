@@ -11,15 +11,16 @@ export const aboutAnimation = (
   const toolBars = aboutEl.querySelectorAll('.progressbar-bar')
   const toolBarTitles = aboutEl.querySelectorAll('.progressbar-title')
   const toolBarCounters = aboutEl.querySelectorAll('.progressbar-count')
+  const contentWrapper = aboutEl.querySelector('.row')
 
   const aboutTextWrapper = (
     aboutEl.querySelector('.about-text-wrapper') as HTMLElement
   ).children
 
   // Include the li elements in the text wrapper array
-  const allTextWrapper = Array.from(aboutTextWrapper[0].children).concat(
-    Array.from(aboutTextWrapper)
-  )
+  const allTextWrapper: Element[] = Array.from(
+    aboutTextWrapper[0].children
+  ).concat(Array.from(aboutTextWrapper))
 
   const tl = gsap.timeline({
     defaults: { duration: 2, ease: 'power3.out' },
@@ -33,6 +34,8 @@ export const aboutAnimation = (
     },
   })
 
+  const animateOut = [...allTextWrapper, ...Array.from(toolBarWrappers)]
+
   gsap
     .timeline({
       defaults: { duration: 2, ease: 'power3.out' },
@@ -40,8 +43,8 @@ export const aboutAnimation = (
         trigger: aboutRef.current,
         start: 'top top',
         end: 'bottom+=50% top',
-        scrub: 2,
-        toggleActions: 'play none none none',
+        scrub: true,
+        // toggleActions: 'play none none none',
       },
     })
     .to(
@@ -65,6 +68,27 @@ export const aboutAnimation = (
       ),
       { autoAlpha: 0, duration: 0.5 },
       '>-0.25'
+    )
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: aboutRef.current,
+        start: 'bottom bottom-=10%',
+        end: 'bottom bottom-=10%',
+        toggleActions: 'play none none reverse',
+      },
+    })
+    .to(
+      [...Array.from((contentWrapper as Element).children)],
+      {
+        duration: 0.75,
+        ease: 'power1',
+        y: -75,
+        stagger: 0.2,
+        autoAlpha: 0,
+      },
+      0
     )
 
   tl.to(

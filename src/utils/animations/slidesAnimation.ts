@@ -13,6 +13,7 @@ export const slideAnimate = <T>(
       end: `bottom+=${(slideWrapperEl.children.length - 1) * 100}%`,
       pin: true,
       scrub: true,
+      markers: true,
     },
   })
 

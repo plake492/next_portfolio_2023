@@ -22,7 +22,7 @@ export default function Header() {
 
   return (
     <header
-      className="py-md px-xl justify-content-between position-fixed z-10 w-100 top-0 d-none d-md-flex"
+      className="py-md px-xl justify-content-between position-fixed z-10 w-100 top-0 d-none d-md-flex bg-dark border-bottom border-accent"
       id="header"
       style={{ '--color': colorTheme?.dark } as React.CSSProperties}
     >
@@ -50,7 +50,7 @@ export default function Header() {
             height={50 * 0.75}
             style={{ filter: 'hue-rotate(310deg)' }}
           /> */}
-          <p className="h5">PATRICK LAKE</p>
+          <p className="h5 mb-none">PATRICK LAKE</p>
         </Link>
       </div>
       <div>

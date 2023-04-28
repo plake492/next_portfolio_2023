@@ -4,7 +4,6 @@ import useAnimation from '@components/hooks/useAnimation'
 import { heroTextFadeAnimations } from '@components/utils/animations/heroTextAnimation'
 import { textColorShiftAnimation } from '@components/utils/animations/textColorShiftAnimation'
 import { gridAnimation } from '@components/utils/animations/gridAnimation'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
@@ -17,7 +16,7 @@ export default function Hero({
 
   const word = 'Fullstack Web Developer'
 
-  useAnimation<HTMLDivElement>(heroTextFadeAnimations, {
+  const colorTheme = useAnimation<HTMLDivElement>(heroTextFadeAnimations, {
     containerRef,
   })
 
@@ -49,7 +48,23 @@ export default function Hero({
         className="hero-arrow-down color-accent link--no-underline c-pointer"
         href="#about"
       >
-        <FontAwesomeIcon width={45} icon={faChevronDown} />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          width="60"
+          height="60"
+          zoomAndPan="magnify"
+          viewBox="0 0 375 374.999991"
+          preserveAspectRatio="xMidYMid meet"
+          version="1.0"
+        >
+          <path
+            fill={colorTheme?.accent as string}
+            d="M 375.070312 39.128906 C 375.070312 35.472656 372.878906 32.238281 369.539062 30.84375 C 366.164062 29.488281 362.335938 30.289062 359.792969 32.898438 L 187.945312 204.847656 L 16.097656 32.898438 C 13.867188 30.566406 10.527344 29.625 7.433594 30.460938 C 4.300781 31.261719 1.863281 33.699219 1.066406 36.832031 C 0.230469 39.929688 1.167969 43.273438 3.5 45.5 L 187.945312 230.054688 L 372.390625 45.5 C 374.128906 43.828125 375.070312 41.53125 375.070312 39.128906 Z M 375.070312 154.957031 C 375.070312 151.335938 372.878906 148.101562 369.539062 146.707031 C 366.164062 145.351562 362.335938 146.148438 359.792969 148.761719 L 187.945312 320.710938 L 16.097656 148.761719 C 13.867188 146.429688 10.527344 145.488281 7.433594 146.324219 C 4.300781 147.125 1.863281 149.5625 1.066406 152.695312 C 0.230469 155.792969 1.167969 159.136719 3.5 161.363281 L 187.945312 345.917969 L 372.390625 161.363281 C 374.128906 159.691406 375.070312 157.394531 375.070312 154.957031 Z M 375.070312 154.957031 "
+            fillOpacity="1"
+            fillRule="nonzero"
+          />
+        </svg>
       </a>
     </section>
   )
