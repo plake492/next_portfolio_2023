@@ -26,43 +26,43 @@ export default function PageBg({ children }: { children: React.ReactNode }) {
       .to(globalThis.document.querySelectorAll('.color-change-bg'), {
         '--color': colorTheme?.primary,
       })
-    // .to(
-    //   refRef.current.children[0],
-    //   {
-    //     xPercent: 175,
-    //     yPercent: -100,
-    //     rotate: 200,
-    //     '--a': colorTheme?.tertiary,
-    //     '--b': colorTheme?.accent,
-    //   },
-    //   0
-    // )
-    // .to(
-    //   refRef.current.children[3],
-    //   {
-    //     xPercent: 90,
-    //     yPercent: -10,
-    //     rotate: 360,
-    //   },
-    //   0
-    // )
-    // .to(
-    //   refRef.current.children[1],
-    //   {
-    //     xPercent: 100,
-    //     yPercent: -100,
-    //     rotate: 360,
-    //   },
-    //   0
-    // )
-    // .to(
-    //   refRef.current.children[2],
-    //   {
-    //     xPercent: -2000,
-    //     yPercent: 200,
-    //   },
-    //   0
-    // )
+      .to(
+        refRef.current.children[0],
+        {
+          xPercent: 175,
+          yPercent: -100,
+          rotate: 200,
+          '--a': colorTheme?.tertiary,
+          '--b': colorTheme?.accent,
+        },
+        0
+      )
+      .to(
+        refRef.current.children[3],
+        {
+          xPercent: 90,
+          yPercent: -10,
+          rotate: 360,
+        },
+        0
+      )
+      .to(
+        refRef.current.children[1],
+        {
+          xPercent: 100,
+          yPercent: -100,
+          rotate: 360,
+        },
+        0
+      )
+      .to(
+        refRef.current.children[2],
+        {
+          xPercent: -2000,
+          yPercent: 200,
+        },
+        0
+      )
   }
 
   useAnimation(animation, { refRef })

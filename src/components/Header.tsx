@@ -1,6 +1,7 @@
+import * as React from 'react'
 import Link from 'next/link'
 import useTheme from '@components/hooks/useTheme'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const links = [
   {
@@ -18,13 +19,20 @@ const links = [
 ]
 
 export default function Header() {
+  const scrollDirection = useScrollDirection()
   const colorTheme = useTheme()
 
   return (
     <header
       className="py-md px-xl justify-content-between position-fixed z-10 w-100 top-0 d-none d-md-flex bg-dark border-bottom border-accent"
       id="header"
-      style={{ '--color': colorTheme?.dark } as React.CSSProperties}
+      style={
+        {
+          '--color': colorTheme?.dark,
+          transform: `translateY(${scrollDirection === 'up' ? 0 : -100}%)`,
+          transition: `all 500ms ease-in-out`,
+        } as React.CSSProperties
+      }
     >
       <div>
         <Link className="link--nav color-accent-40" href="/">
@@ -66,4 +74,26 @@ export default function Header() {
       </div>
     </header>
   )
+}
+
+function useScrollDirection() {
+  const [scrollDirection, setScrollDirection] = React.useState('up')
+  const [prevOffset, setPrevOffset] = React.useState(0)
+
+  const toggleScrollDirection = () => {
+    const { scrollY } = window
+
+    if (scrollY > prevOffset) setScrollDirection('down')
+    else setScrollDirection('up')
+
+    setPrevOffset(scrollY)
+  }
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', toggleScrollDirection, {
+      passive: true,
+    })
+    return () => window.removeEventListener('scroll', toggleScrollDirection)
+  })
+  return scrollDirection
 }

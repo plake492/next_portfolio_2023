@@ -4,10 +4,7 @@ import useAnimation, { GSAPTypes } from '@components/hooks/useAnimation'
 import { curtainAnimation } from '@components/utils/animations/curtainAnimation'
 import { Form, Input, Textarea } from '@plake492/form-validation'
 import useTheme from '@components/hooks/useTheme'
-import {
-  objectGenericString,
-  objectGenericStringNumber,
-} from '@components/types'
+import { objectGenericString } from '@components/types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
@@ -20,14 +17,12 @@ import GridStripWrapper from './GridStripWrapper'
 
 export default function Contact(): JSX.Element {
   const [formStyles, setFormStyles] = React.useState<objectGenericString>({})
-
   const colorTheme = useTheme()
-
   const contactRef = React.useRef(null)
 
   React.useEffect(() => {
     if (colorTheme) {
-      const formConfig: { [key: string]: string } = {
+      const formConfig: objectGenericString = {
         shadowColor: colorTheme?.accent as string,
         fieldBackgroundColor: '#242424aa',
         fieldBorderColor: colorTheme?.tertiary as string,

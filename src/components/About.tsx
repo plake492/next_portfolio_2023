@@ -12,7 +12,7 @@ export default function About() {
 
   return (
     <section
-      className="h-vh-100 border border-top border-5 border-tertiary overflow-hidden h-min-vh-100 position-relative"
+      className="h-vh-100 border border-5 border-tertiary overflow-hidden h-min-vh-100 position-relative"
       ref={aboutRef}
       style={{ backgroundColor: '#000000' }}
       id="about"

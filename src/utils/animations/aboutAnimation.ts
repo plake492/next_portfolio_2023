@@ -1,10 +1,11 @@
 import { GSAPTypes } from '@components/hooks/useAnimation'
 import { objectGenericStringNumber } from '@components/types'
+import { pinProgressAnimation } from './pinProgressAnimaition'
 
 export const aboutAnimation = (
   gsap: GSAPTypes,
   { aboutRef }: { [key: string]: React.RefObject<HTMLElement> },
-  colorTheme: objectGenericStringNumber | undefined
+  theme: objectGenericStringNumber | undefined
 ) => {
   const aboutEl = aboutRef.current as HTMLElement
   const toolBarWrappers = aboutEl.querySelectorAll('.progressbar-wrapper')
@@ -12,7 +13,6 @@ export const aboutAnimation = (
   const toolBarTitles = aboutEl.querySelectorAll('.progressbar-title')
   const toolBarCounters = aboutEl.querySelectorAll('.progressbar-count')
   const contentWrapper = aboutEl.querySelector('.row')
-
   const aboutTextWrapper = (
     aboutEl.querySelector('.about-text-wrapper') as HTMLElement
   ).children
@@ -21,6 +21,11 @@ export const aboutAnimation = (
   const allTextWrapper: Element[] = Array.from(
     aboutTextWrapper[0].children
   ).concat(Array.from(aboutTextWrapper))
+
+  // const animateOut = [...allTextWrapper, ...Array.from(toolBarWrappers)]
+
+  // Use pinning with progress bar aniamtion
+  pinProgressAnimation(gsap, aboutRef, theme as objectGenericStringNumber)
 
   const tl = gsap.timeline({
     defaults: { duration: 2, ease: 'power3.out' },
@@ -33,42 +38,6 @@ export const aboutAnimation = (
       toggleActions: 'play none none none',
     },
   })
-
-  const animateOut = [...allTextWrapper, ...Array.from(toolBarWrappers)]
-
-  gsap
-    .timeline({
-      defaults: { duration: 2, ease: 'power3.out' },
-      scrollTrigger: {
-        trigger: aboutRef.current,
-        start: 'top top',
-        end: 'bottom+=50% top',
-        scrub: true,
-        // toggleActions: 'play none none none',
-      },
-    })
-    .to(
-      aboutRef.current,
-      {
-        '--border-color': colorTheme?.dark + '00',
-        backgroundColor: '#00000000',
-      },
-      0
-    )
-    .from(
-      (aboutRef.current as HTMLDivElement).querySelector(
-        '.scroll-progress-bar'
-      ),
-      { width: 0, duration: 2 },
-      0
-    )
-    .to(
-      (aboutRef.current as HTMLDivElement).querySelector(
-        '.scroll-progress-bar'
-      ),
-      { autoAlpha: 0, duration: 0.5 },
-      '>-0.25'
-    )
 
   gsap
     .timeline({
@@ -136,14 +105,10 @@ export const aboutAnimation = (
   // Animte toolbar title color
   tl.to(
     toolBarTitles,
-    { '--text-color': colorTheme?.textColorHeader, stagger: 0.4 },
+    { '--text-color': theme?.textColorHeader, stagger: 0.4 },
     0
   )
-  tl.to(
-    toolBarTitles,
-    { '--text-color': colorTheme?.dark, stagger: 0.25 },
-    1.75
-  )
+  tl.to(toolBarTitles, { '--text-color': theme?.dark, stagger: 0.25 }, 1.75)
   // Toolbar text count
   Array.from(toolBarCounters).forEach((el: any, index) =>
     tl.from(
@@ -173,13 +138,13 @@ export const aboutAnimation = (
     listItemsTL.to(
       pEl,
       {
-        '--text-color': colorTheme?.['accent-60'],
+        '--text-color': theme?.['accent-60'],
       },
       index * textTime
     )
     listItemsTL.to(
       pEl,
-      { '--text-color': colorTheme?.textColor },
+      { '--text-color': theme?.textColor },
       (index + 1) * textTime
     )
   })

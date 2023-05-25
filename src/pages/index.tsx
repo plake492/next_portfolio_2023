@@ -1,7 +1,8 @@
 import * as React from 'react'
 import Head from 'next/head'
 import Hero from '@components/components/Hero'
-import Projects from '@components/components/Projecs'
+import AllProjects from '@components/components/AllProjects'
+import Projects from '@components/components/Projects'
 import GridStripWrapper from '@components/components/GridStripWrapper'
 import PageBg from '@components/components/PageBg'
 import About from '@components/components/About'
@@ -21,8 +22,9 @@ export default function Home() {
           <Hero />
         </GridStripWrapper>
         <About />
-        <Projects project={'node.js'} />
-        <Projects project={'GSAP.js'} />
+        <AllProjects />
+        {/* <Projects project={'node.js'} /> */}
+        {/* <Projects project={'GSAP.js'} /> */}
       </PageBg>
     </>
   )

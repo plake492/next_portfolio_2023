@@ -44,19 +44,17 @@ export default function Footer() {
   )
   return (
     <footer className="bg-dark h-vh-100" ref={footerRef}>
-      <div className="px-lg pt-md pb-xxl">
-        <div className="d-flex justify-content-between">
-          <p className="h5 flex-1">PATRICK LAKE</p>
-          <div className="flex-2 d-flex flex-col justify-content-start align-items-end alt-font gap-md">
-            <p className="text-sm">Enjoy a dad joke: </p>
-            <p>{joke ?? 'fetching...'}</p>
-            <button
-              className="text-sm alt-font c-pointer py-xs px-sm border color-white px-lg py-xs text-lg border c-pointer"
-              onClick={() => getJoke(true)}
-            >
-              Get a different joke
-            </button>
-          </div>
+      <div className="d-flex justify-content-between h-100 px-lg py-xl">
+        <p className="h5 flex-1 align-self-end">PATRICK LAKE</p>
+        <div className="flex-2 d-flex flex-col justify-content-start align-items-end alt-font gap-md">
+          <p className="text-sm">Enjoy a dad joke: </p>
+          <p>{joke ?? 'fetching...'}</p>
+          <button
+            className="text-sm alt-font c-pointer py-xs px-sm border color-white px-lg py-xs text-lg border c-pointer"
+            onClick={() => getJoke(true)}
+          >
+            Get a different joke
+          </button>
         </div>
       </div>
     </footer>
