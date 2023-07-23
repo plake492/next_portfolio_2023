@@ -14,6 +14,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 import GridStripWrapper from './GridStripWrapper'
+import FooterTag from './FooterTag'
 
 export default function Contact(): JSX.Element {
   const [formStyles, setFormStyles] = React.useState<objectGenericString>({})
@@ -57,19 +58,16 @@ export default function Contact(): JSX.Element {
     <section
       id="contact"
       ref={contactRef}
-      className="position-relative border border-5 border-dark h-vh-100 overflow-hidden position-relative z-2"
-      style={{ borderWidth: '2rem' }}
+      className="position-relative border border-1 border-dark overflow-hidden position-relative z-2"
+      style={{ borderWidth: '1rem' }}
     >
       <GridStripWrapper dir="tl">
-        <div className="position-relative z-2 py-xl px-none px-md-md px-lg-xl">
+        <div className="position-relative z-2 py-md">
           <div className="position-relative mb-xxl my-xl">
-            <div className="px-md-xl px-lg-xl px-md h-100 position-relative z-1">
-              <p className="h4 text-lg mb-lg">
-                Lets build something amazing together!
-              </p>
-
+            <div className="px-md-xl px-lg-xl px-md h-100 position-relative z-1 d-flex gap-md align-items-center">
               {Object.keys(formStyles).length ? (
                 <Form
+                  wrapperClasses="w-max-75"
                   rowGap="xs"
                   styleOptions={formStyles}
                   onSubmit={(event, isSuccess) =>
@@ -85,6 +83,9 @@ export default function Contact(): JSX.Element {
                     </button>
                   }
                 >
+                  <p className="h4 text-lg mb-lg">
+                    Lets build something amazing together!
+                  </p>
                   <Input
                     type={'text'}
                     label={'Name'}
@@ -116,7 +117,7 @@ export default function Contact(): JSX.Element {
                   />
                 </Form>
               ) : null}
-              <div className="my-xl d-flex justify-content-start justify-content-md-end gap-xl">
+              <div className="my-xl d-flex flex-col justify-content-end gap-xl">
                 <FontAwesomeIcon
                   icon={faInstagram}
                   style={{ width: '36' }}

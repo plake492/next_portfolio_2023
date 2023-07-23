@@ -19,7 +19,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         <Component {...pageProps} key={router.asPath} />
       </div>
       <div className="position-relative z-3">
-        <Contact />
+        {/* <Contact /> */}
         <Footer />
       </div>
     </>
